@@ -1,9 +1,12 @@
 import java.net.URLDecoder;
 import java.util.*;
+import javax.xml.*;
+import javax.xml.bind.DatatypeConverter;
 
 class VaultDoor5 {
     public static void main(String args[]) {
         VaultDoor5 vaultDoor = new VaultDoor5();
+        answer();
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter vault password: ");
         String userInput = scanner.next();
@@ -45,5 +48,42 @@ class VaultDoor5 {
                         + "JTY2JTcyJTMwJTZkJTVmJTYyJTYxJTM1JTY1JTVmJTM2"
                         + "JTM0JTVmJTY0JTYyJTM2JTM5JTM0JTM2JTYyJTYx";
         return base64Encoded.equals(expected);
+    }
+
+
+    public static void answer(){
+
+        String expected = "JTYzJTMwJTZlJTc2JTMzJTcyJTc0JTMxJTZlJTY3JTVm"
+                + "JTY2JTcyJTMwJTZkJTVmJTYyJTYxJTM1JTY1JTVmJTM2"
+                + "JTM0JTVmJTY0JTYyJTM2JTM5JTM0JTM2JTYyJTYx";
+
+
+
+        byte[] decoded = Base64.getDecoder().decode(expected);
+
+        System.out.println(new String(decoded));
+
+        StringBuffer buf = new StringBuffer();
+
+        char[] test = new char[decoded.length];
+
+        for(int i = 0; i < decoded.length; i++){
+            buf.append(decoded[i]);
+            //test[i] = buf
+            //System.out.println(decoded[i]);
+          // test[i] = DatatypeConverter.parseHexBinary();
+        }
+
+
+        for(byte t: "abcde".getBytes()){
+
+            System.out.println(t);
+        }
+
+        System.out.println(new String(decoded));
+
+
+
+
     }
 }
